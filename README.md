@@ -27,5 +27,81 @@ Then, you can use one of the 3 available classes:
 
 ### Creating an alias
 
-Use the `Alias` class to easily create an alias:
+Use the `Alias` class to easily create an alias.
+
+```
+public function getServices() {
+    return [
+        'myAlias' => new Alias('myService')
+    ]
+}
+```
+
+can easily replace:
+
+```
+public function getServices() {
+    return [
+        'myAlias' => function(ContainerInterface $container) {
+            return $container->get('myService');
+        }
+    ]
+}
+```
+
+### Creating a parameter
+
+Use the `Parameter` class to put in the container a scalar (or array of scalar) entry:
+
+```
+public function getServices() {
+    return [
+        'DB_HOST' => new Parameter('localhost')
+    ]
+}
+```
+
+can easily replace:
+
+```
+public function getServices() {
+    return [
+        'DB_HOST' => function() {
+            return 'localhost';
+        }
+    ]
+}
+```
+
+### Appending a service to an array of services
+
+Use the `AddToArray` class to push a new service to an existing array:
+
+```
+public function getServices() {
+    return [
+        MyTwigExtension::class => function() {
+            return new MyTwigExtension();
+        },
+        'twig.extensions' => new AddToArray(MyTwigExtension::class)
+    ]
+}
+```
+
+can easily replace:
+
+```
+public function getServices() {
+    return [
+        MyTwigExtension::class => function() {
+            return new MyTwigExtension();
+        },
+        'twig.extensions' => function(ContainerInterface $container, callable $getPrevious = null) {
+            $previous = ($getPrevious === null) ? [] : $getPrevious();
+            $previous[] = $container->get(MyTwigExtension::class);
+            return $previous;
+        }
+    ]
+}
+```
 

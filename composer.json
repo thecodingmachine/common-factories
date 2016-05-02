@@ -1,0 +1,27 @@
+{
+    "name": "container-interop/common-factories",
+    "type": "library",
+    "description": "This project provides utility factories that can be used directly in service providers complying with the container-interop/service-provider standard.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Interop\\Container\\Factories\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Interop\\Container\\Factories\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=5.4",
+        "container-interop/container-interop": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.5",
+        "satooshi/php-coveralls": "^1.0",
+        "mouf/picotainer": "^1.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

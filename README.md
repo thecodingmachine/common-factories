@@ -29,7 +29,7 @@ Then, you can use one of the 3 available classes:
 
 Use the `Alias` class to easily create an alias.
 
-```
+```php
 public function getServices() {
     return [
         'myAlias' => new Alias('myService')
@@ -39,7 +39,7 @@ public function getServices() {
 
 can easily replace:
 
-```
+```php
 public function getServices() {
     return [
         'myAlias' => function(ContainerInterface $container) {
@@ -53,7 +53,7 @@ public function getServices() {
 
 Use the `Parameter` class to put in the container a scalar (or array of scalar) entry:
 
-```
+```php
 public function getServices() {
     return [
         'DB_HOST' => new Parameter('localhost')
@@ -63,7 +63,7 @@ public function getServices() {
 
 can easily replace:
 
-```
+```php
 public function getServices() {
     return [
         'DB_HOST' => function() {
@@ -77,7 +77,7 @@ public function getServices() {
 
 Use the `AddToArray` class to push a new service to an existing array:
 
-```
+```php
 public function getServices() {
     return [
         MyTwigExtension::class => function() {
@@ -90,7 +90,7 @@ public function getServices() {
 
 can easily replace:
 
-```
+```php
 public function getServices() {
     return [
         MyTwigExtension::class => function() {

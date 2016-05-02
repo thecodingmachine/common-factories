@@ -1,6 +1,6 @@
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/moufmouf/common-factories/badges/quality-score.png?b=1.0)](https://scrutinizer-ci.com/g/moufmouf/common-factories/?branch=1.0)
-[![Build Status](https://travis-ci.org/moufmouf/common-factories.svg?branch=1.0)](https://travis-ci.org/moufmouf/common-factories)
-[![Coverage Status](https://coveralls.io/repos/moufmouf/common-factories/badge.svg?branch=1.0&service=github)](https://coveralls.io/github/moufmouf/common-factories?branch=1.0)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/moufmouf/common-factories/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/moufmouf/common-factories/?branch=master)
+[![Build Status](https://travis-ci.org/moufmouf/common-factories.svg?branch=master)](https://travis-ci.org/moufmouf/common-factories)
+[![Coverage Status](https://coveralls.io/repos/moufmouf/common-factories/badge.svg?branch=master&service=github)](https://coveralls.io/github/moufmouf/common-factories?branch=master)
 
 
 # Utility factories for container-interop/service-provider

@@ -19,8 +19,10 @@ Those common factories can be detected by compiled/cached containers. The aim of
 
 Simply require this package in your package declaring your service-provider:
 
+**So far, the package has the thecodingmachine vendor name. It will hopefully be migrated to  container-interop/common-factories**
+
 ```sh
-composer require container-interop/common-factories
+composer require thecodingmachine/common-factories
 ```
 
 Then, you can use one of the 3 available classes:

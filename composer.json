@@ -1,5 +1,5 @@
 {
-    "name": "container-interop/common-factories",
+    "name": "thecodingmachine/common-factories",
     "type": "library",
     "description": "This project provides utility factories that can be used directly in service providers complying with the container-interop/service-provider standard.",
     "license": "MIT",

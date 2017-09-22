@@ -17,9 +17,7 @@ class AddToArrayTest extends \PHPUnit_Framework_TestCase
         $addToArray = new AddToArray('baz');
 
         $this->assertSame('baz', $addToArray->getAddedService());
-        $this->assertSame(['bar', 'yeah!'], $addToArray($container, function () {
-            return ['bar'];
-        }));
+        $this->assertSame(['bar', 'yeah!'], $addToArray($container, ['bar']));
     }
 
     public function testAddToEmptyArray()
@@ -32,6 +30,6 @@ class AddToArrayTest extends \PHPUnit_Framework_TestCase
 
         $addToArray = new AddToArray('baz');
 
-        $this->assertSame(['yeah!'], $addToArray($container, null));
+        $this->assertSame(['yeah!'], $addToArray($container));
     }
 }

@@ -34,17 +34,13 @@ final class AddToArray
      * The array is created if it does not exist yet.
      *
      * @param ContainerInterface $container
-     * @param callable|null      $getPrevious
+     * @param array              $previous
      *
      * @return array
      */
-    public function __invoke(ContainerInterface $container, callable $getPrevious = null)
+    public function __invoke(ContainerInterface $container, array $previous = [])
     {
-        // Let's check if a previous value exists. If yes, let's resolve it.
-        $previous = ($getPrevious === null) ? [] : $getPrevious();
-
         $previous[] = $container->get($this->serviceName);
-
         return $previous;
     }
 }

@@ -32,7 +32,7 @@ Then, you can use one of the 3 available classes:
 Use the `Alias` class to easily create an alias.
 
 ```php
-public function getServices() {
+public function getFactories() {
     return [
         'myAlias' => new Alias('myService')
     ]
@@ -42,7 +42,7 @@ public function getServices() {
 can easily replace:
 
 ```php
-public function getServices() {
+public function getFactories() {
     return [
         'myAlias' => function(ContainerInterface $container) {
             return $container->get('myService');
@@ -56,7 +56,7 @@ public function getServices() {
 Use the `Parameter` class to put in the container a scalar (or array of scalar) entry:
 
 ```php
-public function getServices() {
+public function getFactories() {
     return [
         'DB_HOST' => new Parameter('localhost')
     ]
@@ -66,7 +66,7 @@ public function getServices() {
 can easily replace:
 
 ```php
-public function getServices() {
+public function getFactories() {
     return [
         'DB_HOST' => function() {
             return 'localhost';
@@ -80,7 +80,7 @@ public function getServices() {
 Use the `AddToArray` class to push a new service to an existing array:
 
 ```php
-public function getServices() {
+public function getExtensions() {
     return [
         MyTwigExtension::class => function() {
             return new MyTwigExtension();
@@ -93,17 +93,15 @@ public function getServices() {
 can easily replace:
 
 ```php
-public function getServices() {
+public function getExtensions() {
     return [
         MyTwigExtension::class => function() {
             return new MyTwigExtension();
         },
-        'twig.extensions' => function(ContainerInterface $container, callable $getPrevious = null) {
-            $previous = ($getPrevious === null) ? [] : $getPrevious();
-            $previous[] = $container->get(MyTwigExtension::class);
-            return $previous;
+        'twig.extensions' => function(ContainerInterface $container, array $extensions = []) {
+            $extensions[] = $container->get(MyTwigExtension::class);
+            return $extensions;
         }
     ]
 }
 ```
-

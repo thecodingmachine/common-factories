@@ -2,7 +2,7 @@
 
 namespace Interop\Container\Factories;
 
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 
 /**
  * A factory that creates an alias to another container entry.
